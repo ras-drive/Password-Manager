@@ -11,6 +11,15 @@ public class SQLConnection {
 
     private static String url;
 
+    public SQLConnection() throws IOExecption {
+        connection = null;
+        resultSet = null;
+        statement = null;
+
+        String currentPath = new java.io.File(".").getCanonicalPath();
+        url = "jdbc:sqlite" + currentPath + "/sqlite/passwords.sqlite";
+    }
+
     public SQLConnection(String databaseName) throws IOException {
         connection = null;
         resultSet = null;
@@ -18,10 +27,6 @@ public class SQLConnection {
 
         String currentPath = new java.io.File(".").getCanonicalPath();
         url = "jdbc:sqlite:" + currentPath + "/sqlite/" + databaseName + ".sqlite";
-    }
-
-    public SQLConnection() {
-
     }
 
     public String getUrl() {
