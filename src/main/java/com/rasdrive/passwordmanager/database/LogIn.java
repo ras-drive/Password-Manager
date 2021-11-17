@@ -1,6 +1,6 @@
 package com.rasdrive.passwordmanager.database;
 
-public record LogIn(String website, String userName, String password) {
+public record LogIn(String website, String username, String password) {
 
     public String getWebsite() {
         return website;
@@ -10,8 +10,8 @@ public record LogIn(String website, String userName, String password) {
         return password;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
 }

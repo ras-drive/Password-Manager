@@ -5,9 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TestSQLConnection {
-    public static void testDB() throws SQLException, IOException {
+    protected static void testDB() throws SQLException, IOException {
         SQLConnection connection = new SQLConnection("test");
-        System.out.println(connection.getUrl());
+        System.out.println(connection.getUrl() + "\n");
+
         LogIn logIn = new LogIn("Amazon", "example@domain.com", "Password01");
         LogIn logIn1 = new LogIn("hbo", "test@domain.com", "Password02");
         LogIn logIn2 = new LogIn("netflix", "domain@example.com", "Password03");
@@ -16,14 +17,14 @@ public class TestSQLConnection {
         connection.insertIntoTable(logIn);
         connection.insertIntoTable(logIn1);
         connection.insertIntoTable(logIn2);
-        ArrayList<LogIn> list = SQLConnection.readAllFromDB();
+        ArrayList<LogIn> list = connection.readAllFromDB();
         for (LogIn log : list) {
             System.out.println(log.getWebsite() + " " +
-                    log.getUserName() + " " +
+                    log.getUsername() + " " +
                     log.getPassword() + " ");
         }
         connection.dropTableFromDB();
-        System.out.println("Test passed!");
+        System.out.println("\nTest passed!");
     }
 
     public static void main(String[] args) throws SQLException, IOException {

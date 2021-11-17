@@ -33,7 +33,7 @@ public class SQLConnection {
             connection = DriverManager.getConnection(url);
 
             if (connection != null) {
-                System.out.println("Connection established");
+                System.out.println("Connection established\n");
             }
             assert connection != null;
             statement = connection.createStatement();
@@ -43,7 +43,7 @@ public class SQLConnection {
         }
     }
 
-    protected void closeDB() {
+    public void closeDB() {
         try {
             connection.close();
             System.out.println("Successfully closed database");
@@ -65,8 +65,11 @@ public class SQLConnection {
     }
 
     public void insertIntoTable(LogIn logIn) throws SQLException {
+        if (connection == null) {
+            connectToDB();
+        }
         statement.executeUpdate("INSERT INTO passwords VALUES(\"" +  logIn.getWebsite() + "\", \"" +
-                                                                logIn.getUserName() + "\", \"" +
+                                                                logIn.getUsername() + "\", \"" +
                                                                 logIn.getPassword() + "\")"
                                                             );
     }
@@ -78,7 +81,7 @@ public class SQLConnection {
         statement.executeUpdate("DROP TABLE passwords");
     }
 
-    public static ArrayList<LogIn> readAllFromDB() throws SQLException {
+    public ArrayList<LogIn> readAllFromDB() throws SQLException {
         ArrayList<LogIn> returnList = new ArrayList<>();
         if (connection == null) {
             connectToDB();

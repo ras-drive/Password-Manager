@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rasdrive.passwordmanager.ApplicationController">
+   <children>
+      <TableView fx:id="table" layoutX="150.0" layoutY="150.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="websiteColumn" prefWidth="75.0" text="Website" />
+          <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="Username" />
+            <TableColumn fx:id="passwordColumn" prefWidth="75.0" text="Password" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
