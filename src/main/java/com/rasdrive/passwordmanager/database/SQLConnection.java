@@ -42,8 +42,8 @@ public class SQLConnection {
             }
             assert connection != null;
             statement = connection.createStatement();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("An error occurred");
         }
     }
@@ -52,8 +52,8 @@ public class SQLConnection {
         try {
             connection.close();
             System.out.println("Successfully closed database");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("Error closing database");
         }
     }
