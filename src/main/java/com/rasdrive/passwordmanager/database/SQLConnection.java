@@ -11,7 +11,7 @@ public class SQLConnection {
 
     private static String url;
 
-    public SQLConnection() throws IOExecption {
+    public SQLConnection() throws IOException {
         connection = null;
         resultSet = null;
         statement = null;
