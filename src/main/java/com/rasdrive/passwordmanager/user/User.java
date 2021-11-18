@@ -1,14 +1,16 @@
 package com.rasdrive.passwordmanager.user;
 
-import com.rasdrive.passwordmanager.encryption.PasswordEncryptor;
+import com.rasdrive.passwordmanager.encryption.user.UserPasswordEncryptor;
 
+//TODO: Make sure to test this class
 public class User {
     private final String userName;
     private final String userPassword;
 
-    public User(String preHashedPassword) {
+    public User(String unHashedPassword) {
         this.userName = System.getProperty("user.name");
-        this.userPassword = PasswordEncryptor.encrypt(preHashedPassword);
+        // TODO: Make sure to warn the user that this will not be recoverable
+        this.userPassword = UserPasswordEncryptor.encrypt(unHashedPassword);
     }
 
     public String getUserName() {
@@ -19,7 +21,4 @@ public class User {
         return userPassword;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

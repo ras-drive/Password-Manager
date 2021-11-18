@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rasdrive.passwordmanager.ApplicationController">
    <children>
-      <TableView fx:id="table" layoutX="150.0" layoutY="150.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="table" layoutX="150.0" layoutY="150.0" prefHeight="500.0" prefWidth="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn fx:id="websiteColumn" prefWidth="75.0" text="Website" />
-          <TableColumn fx:id="usernameColumn" prefWidth="75.0" text="Username" />
-            <TableColumn fx:id="passwordColumn" prefWidth="75.0" text="Password" />
+          <TableColumn fx:id="websiteColumn" prefWidth="120.0" text="Website" />
+          <TableColumn fx:id="usernameColumn" prefWidth="125.0" text="Username" />
+            <TableColumn fx:id="passwordColumn" prefWidth="125.0" text="Password" />
         </columns>
       </TableView>
+      <Button fx:id="addLoginButton" layoutX="372.0" mnemonicParsing="false" onAction="#addLoginButtonPress" prefHeight="28.0" prefWidth="129.0" text="Add Login">
+         <tooltip>
+            <Tooltip text="Make sure to have something in each of the fields." wrapText="true" />
+         </tooltip>
+      </Button>
+      <Label layoutX="372.0" layoutY="28.0" prefHeight="28.0" prefWidth="129.0" text="Website Name" />
+      <TextField fx:id="websiteField" layoutX="372.0" layoutY="56.0" prefHeight="40.0" prefWidth="129.0" promptText="website name" />
+      <Label layoutX="372.0" layoutY="96.0" prefHeight="28.0" prefWidth="129.0" text="Username" />
+      <TextField fx:id="usernameField" layoutX="372.0" layoutY="124.0" prefHeight="40.0" prefWidth="129.0" promptText="username" />
+      <Label layoutX="372.0" layoutY="164.0" prefHeight="28.0" prefWidth="129.0" text="Password" />
+      <TextField fx:id="passwordField" layoutX="372.0" layoutY="192.0" prefHeight="40.0" prefWidth="129.0" promptText="password" />
    </children>
 </AnchorPane>

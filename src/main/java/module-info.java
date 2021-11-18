@@ -4,6 +4,7 @@ module com.rasdrive.passwordmanager {
     requires java.sql;
     requires java.desktop;
     requires jbcrypt;
+    requires org.controlsfx.controls;
 
 
     opens com.rasdrive.passwordmanager to javafx.fxml;

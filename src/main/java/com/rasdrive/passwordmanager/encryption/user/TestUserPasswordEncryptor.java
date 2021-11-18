@@ -1,10 +1,10 @@
-package com.rasdrive.passwordmanager.encryption;
+package com.rasdrive.passwordmanager.encryption.user;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import static com.rasdrive.passwordmanager.encryption.PasswordEncryptor.encrypt;
+import static com.rasdrive.passwordmanager.encryption.user.UserPasswordEncryptor.encrypt;
 
-public class TestPasswordEncryptor {
+public class TestUserPasswordEncryptor {
 
     protected static void timedEncrypt(int logRounds) {
         final long startTime = System.currentTimeMillis();
