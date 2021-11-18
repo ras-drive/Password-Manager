@@ -1,11 +1,10 @@
 package com.rasdrive.passwordmanager;
 
+import com.rasdrive.passwordmanager.database.FileReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -13,14 +12,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import com.rasdrive.passwordmanager.database.LogIn;
-import com.rasdrive.passwordmanager.database.SQLConnection;
-import javafx.scene.layout.HBox;
 import org.controlsfx.control.PopOver;
 
 public class ApplicationController {
     public ApplicationController() throws IOException {
     }
-    private final SQLConnection connection = new SQLConnection("passwords");
     @FXML private TableView<LogIn> table;
     @FXML private TableColumn<LogIn, String> websiteColumn;
     @FXML private TableColumn<LogIn, String> usernameColumn;
@@ -50,7 +46,8 @@ public class ApplicationController {
 
     public ObservableList<LogIn> getLogins() throws IOException, SQLException {
         ObservableList<LogIn> logIns = FXCollections.observableArrayList();
-        logIns.addAll(connection.readAllFromDB());
+        // logIns.addAll(connection.readAllFromDB());
+        logIns.addAll(FileReader.readFromFile("data"));
         return logIns;
     }
 

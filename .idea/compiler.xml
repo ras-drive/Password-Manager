@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Password-Manager" options="--add-exports org.controlsfx.controls/org.controlsfx=com.rasdrive.passwordmanager" />
+      <module name="Password-Manager" options="" />
     </option>
   </component>
 </project>
