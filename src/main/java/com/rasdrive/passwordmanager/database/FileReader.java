@@ -28,15 +28,4 @@ public class FileReader {
         return returnList;
     }
 
-    public static void main(String[] args) {
-        try {
-            ArrayList<LogIn> logIns = readFromFile("test");
-            for (LogIn log : logIns) {
-                System.out.println(log.getWebsite());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }

@@ -1,6 +1,7 @@
 package com.rasdrive.passwordmanager;
 
 import com.rasdrive.passwordmanager.database.FileReader;
+import com.rasdrive.passwordmanager.database.FileWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,13 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.rasdrive.passwordmanager.database.LogIn;
 import org.controlsfx.control.PopOver;
 
 public class ApplicationController {
-    public ApplicationController() throws IOException {
+    public ApplicationController() {
     }
     @FXML private TableView<LogIn> table;
     @FXML private TableColumn<LogIn, String> websiteColumn;
@@ -28,12 +29,15 @@ public class ApplicationController {
 
     @FXML private Button addLoginButton;
 
-    public void addLoginButtonPress(ActionEvent event) throws IOException {
+    public void addLoginButtonPress() throws IOException {
         if (!websiteField.getText().trim().isEmpty() &&
             !usernameField.getText().trim().isEmpty() &&
             !passwordField.getText().trim().isEmpty()) {
             LogIn newLogin = new LogIn(websiteField.getText(), usernameField.getText(), passwordField.getText());
-            System.out.println(newLogin.getWebsite() + " " + newLogin.getUsername() + " " + newLogin.getPassword());
+            ArrayList<LogIn> logIns = FileReader.readFromFile("data");
+            logIns.add(newLogin);
+            FileWriter.writeToFile("data", logIns);
+            initialize();
         } else {
             Label label = new Label("You must fill out all of the fields before hitting \"Add Login\"");
             label.setWrapText(true);
@@ -44,14 +48,13 @@ public class ApplicationController {
         }
     }
 
-    public ObservableList<LogIn> getLogins() throws IOException, SQLException {
+    public ObservableList<LogIn> getLogins() throws IOException {
         ObservableList<LogIn> logIns = FXCollections.observableArrayList();
-        // logIns.addAll(connection.readAllFromDB());
         logIns.addAll(FileReader.readFromFile("data"));
         return logIns;
     }
 
-    public void initialize() throws SQLException, IOException {
+    public void initialize() throws IOException {
         websiteColumn.setCellValueFactory(new PropertyValueFactory<>("website"));
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));

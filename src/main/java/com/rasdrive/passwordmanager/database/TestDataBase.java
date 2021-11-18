@@ -15,9 +15,8 @@ public class TestDataBase {
             logIns.add(logIn);
         }
 
-        FileWriter fileWriter = new FileWriter("test");
         try {
-            fileWriter.WriteToFile(logIns);
+            FileWriter.writeToFile("test", logIns);
         } catch (IOException e) {
             System.out.println("Write test failed!");
             return;
@@ -41,11 +40,6 @@ public class TestDataBase {
     }
 
     public static void main(String[] args) throws IOException {
-        // testDataBase();
-        FileWriter fileWriter = new FileWriter();
-        LogIn test = new LogIn("test", "test", "test");
-        ArrayList<LogIn> logIns = new ArrayList<>();
-        logIns.add(test);
-        fileWriter.WriteToFile(logIns);
+        testDataBase();
     }
 }
