@@ -1,7 +1,5 @@
 package com.rasdrive.passwordmanager;
 
-import com.rasdrive.passwordmanager.database.LogIn;
-import com.rasdrive.passwordmanager.database.SQLConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +9,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import com.rasdrive.passwordmanager.database.LogIn;
+import com.rasdrive.passwordmanager.database.SQLConnection;
 
 public class ApplicationController {
     public ApplicationController() throws IOException {
