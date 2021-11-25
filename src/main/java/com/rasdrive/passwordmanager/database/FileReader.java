@@ -1,14 +1,15 @@
 package com.rasdrive.passwordmanager.database;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
+
 
 public class FileReader {
-    public static ArrayList<LogIn> readFromFile(String fileName) throws IOException {
+    public static LinkedList<LogIn> readFromFile(String fileName) throws IOException {
         FileInputStream fileStream = new FileInputStream(fileName);
         ObjectInputStream inputStream = new ObjectInputStream(fileStream);
 
-        ArrayList<LogIn> returnList = new ArrayList<>();
+        LinkedList<LogIn> returnList = new LinkedList<>();
         LogIn logIn = null;
 
         while (true) {
@@ -27,5 +28,4 @@ public class FileReader {
         }
         return returnList;
     }
-
 }

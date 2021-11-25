@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
 
 import com.rasdrive.passwordmanager.database.LogIn;
@@ -36,8 +36,9 @@ public class ApplicationController {
             !usernameField.getText().trim().isEmpty() &&
             !passwordField.getText().trim().isEmpty()) {
             LogIn newLogin = new LogIn(websiteField.getText(), usernameField.getText(), passwordField.getText());
-            ArrayList<LogIn> logIns = FileReader.readFromFile("data");
+            LinkedList<LogIn> logIns = FileReader.readFromFile("data");
             logIns.add(newLogin);
+
             FileWriter.writeToFile("data", logIns);
             initialize();
             websiteField.clear();
@@ -81,8 +82,14 @@ public class ApplicationController {
 
     public void initialize() throws IOException {
         websiteColumn.setCellValueFactory(new PropertyValueFactory<>("website"));
+        // websiteColumn.setStyle("-fx-table-cell-border-color: transparent");
+        // websiteColumn.setStyle("-fx-background-color: #2a2929");
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        // usernameColumn.setStyle("-fx-table-cell-border-color: transparent");
+        // usernameColumn.setStyle("-fx-background-color: #2a2929");
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
+        // passwordColumn.setStyle("-fx-table-cell-border-color: transparent");
+        // passwordColumn.setStyle("-fx-background-color: #2a2929");
         table.setItems(getLogins());
     }
 }

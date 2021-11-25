@@ -17,8 +17,6 @@ public class ApplicationMain extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("application-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 500);
         stage.setTitle("Password Manager");
-
-
         stage.setScene(scene);
         stage.show();
     }
